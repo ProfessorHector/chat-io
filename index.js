@@ -36,7 +36,10 @@ if (cluster.isPrimary) {
   const server = createServer(app);
   const io = new Server(server, {
     connectionStateRecovery: {},
-    adapter: createAdapter()
+    adapter: createAdapter(),
+    cors: {
+      origin: '*'
+    }
   });
 
   const __dirname = dirname(fileURLToPath(import.meta.url));
